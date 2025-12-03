@@ -1,1 +1,4 @@
+*
 *.exe
+#ignore binary files with extensions
+!*.*
