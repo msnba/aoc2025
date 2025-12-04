@@ -1,6 +1,5 @@
 *
-#ignore binary files with extensions
-!*.*
 
-*.exe
-*.json
+!*.cpp
+!*.h
+!*.txt
