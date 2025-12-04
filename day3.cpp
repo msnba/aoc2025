@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cmath>
 using namespace std;
 
 int p1()
@@ -42,31 +43,28 @@ long long p2()
     long long sum = 0;
     while (getline(input, line))
     {
-        string result = "";
+        long long result = 0;
         int start = 0;
-        int sizeCounter = 12;
-        while (sizeCounter > 0) // in place to count top 12
+        for (int sizeCounter = 12; sizeCounter > 0; sizeCounter--) // in place to count top 12
         {
-            char max = '0';                                          // using characters to build output easier
+            int max = 0;                                             // using characters to build output easier
             int pos = start;                                         // index of max
             for (int i = start; i <= line.size() - sizeCounter; i++) // greedy algorithm that finds largest digit in terms of not going over size limit
             {
-                if (line[i] > max)
+                if (line[i] - '0' > max)
                 {
-                    max = line[i];
+                    max = line[i] - '0';
                     pos = i;
                 }
             }
-            result += max;
+            result += max * static_cast<long long>(pow(10, sizeCounter - 1));
             start = pos + 1; // the digits have to be in order l->r
-            sizeCounter--;
         }
-        sum += stoll(result); // i hate large numbers
+        sum += result; // i hate large numbers
     }
 
     return sum;
 }
-
 int main()
 {
     cout << p1() << endl;
