@@ -1,19 +1,15 @@
-#include <iostream>
-#include <fstream>
-#include <string>
 #include <cmath>
 using namespace std;
 
+#include "lib.h"
+Lib l;
+
 int p1()
 {
-    std::ifstream input("day3input.txt");
-    if (!input.is_open())
-    {
-        return -1;
-    }
+    l = Lib("day3input.txt");
     string line;
     int sum = 0;
-    while (getline(input, line)) // brute force
+    while (getline(l.input, line)) // brute force
     {
         int maxVal = 0;
         for (int i = 0; i < line.size(); i++)
@@ -34,14 +30,10 @@ int p1()
 }
 long long p2()
 {
-    std::ifstream input("day3input.txt");
-    if (!input.is_open())
-    {
-        return -1;
-    }
+    l = Lib("day3input.txt");
     string line;
     long long sum = 0;
-    while (getline(input, line))
+    while (getline(l.input, line))
     {
         long long result = 0;
         int start = 0;
