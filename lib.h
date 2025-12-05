@@ -11,4 +11,8 @@ public:
 
     Lib() = default;
     Lib(std::string file);
+
+    void ref();
+
+    static std::vector<std::string> split(const std::string &input, const std::string delimiter);
 };

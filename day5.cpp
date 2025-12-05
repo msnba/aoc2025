@@ -20,10 +20,8 @@ void p1(Lib &l)
         }
         if (!cutoff)
         {
-            size_t pos = line.find('-');
-            long start = stol(line.substr(0, pos));
-            long end = stol(line.substr(pos + 1));
-            ranges.push_back({start, end});
+            auto parts = Lib::split(line, "-");
+            ranges.push_back({stol(parts[0]), stol(parts[1])});
         }
         else
         {
@@ -56,10 +54,8 @@ void p2(Lib &l)
         {
             break;
         }
-        size_t pos = line.find('-');
-        long start = stol(line.substr(0, pos));
-        long end = stol(line.substr(pos + 1));
-        ranges.push_back({start, end});
+        auto parts = Lib::split(line, "-");
+        ranges.push_back({stol(parts[0]), stol(parts[1])});
     }
 
     sort(ranges.begin(), ranges.end());
