@@ -63,10 +63,10 @@ void p2(Lib &l)
     vector<pair<long, long>> merged; // pairs largest together so it captures all range
     for (auto &r : ranges)
     {
-        if (merged.empty() || r.first > merged.back().second) // if the first value in range is larger than merged back second, that means that the range is overall a higher range
+        if (merged.empty() || r.first > merged.back().second) // if the first value in range is larger than merged back second, that means that the ranges do not overlap
             merged.push_back(r);
         else
-            merged.back().second = max(merged.back().second, r.second); // finds the highest numerical value to put into that range
+            merged.back().second = max(merged.back().second, r.second); // always sorted in ascending order so the only thing needed is extending the ranges
     }
 
     for (auto &r : merged)
